@@ -3,45 +3,177 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charity Water Landing Page</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>charity : water</title>
+    <link href="https://fonts.googleapis.com/css2?family=Proxima+Nova:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-yellow: #FFD300;
+            --primary-blue: #2E80FF;
+            --secondary-light-blue: #A7D8FF;
+            --secondary-green: #6CC24A;
+            --secondary-red: #FF4C4C;
+            --secondary-pink: #FF7BAC;
+            --secondary-orange: #FF9800;
+            --secondary-dark-green: #1B5E20;
+        }
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            margin: 0;
+            font-family: 'Proxima Nova', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        img { max-width: 100%; height: auto; display: block; }
+
+        header {
+            background-color: #fff;
+            padding: 1rem;
+            width: 100%;
+            max-width: 1200px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            z-index: 10;
+        }
+        header img { height: 50px; }
+
+        /* Fluid type */
+        h1 { font-size: clamp(2rem, 5vw + 0.5rem, 3.25rem); margin: 0 0 .75rem; font-weight: 700; }
+        h2 { font-size: clamp(1.25rem, 2.6vw + 0.6rem, 2rem); margin: .25rem 0 .5rem; }
+        p  { font-size: clamp(1rem, 1.1vw + 0.7rem, 1.125rem); margin: 0; }
+
+        /* HERO */
+        .hero {
+            position: relative;
+            background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80') no-repeat center center/cover;
+            color: #fff;
+            width: 100%;
+            min-height: 65vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+            text-shadow: 0 3px 6px rgba(0,0,0,0.4);
+        }
+        .hero::after { /* overlay for readability */
+            content: "";
+            position: absolute; inset: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.25), rgba(0,0,0,0.35));
+        }
+        .hero > * { position: relative; z-index: 1; }
+        .hero p { max-width: 800px; margin-inline: auto; }
+
+        /* STORY */
+        .story {
+            width: 100%;
+            max-width: 1100px;
+            padding: 2rem 1rem;
+        }
+        .story-inner {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+            padding: 1.25rem;
+            display: grid;
+            gap: 1.25rem;
+        }
+        .badge {
+            display: inline-block;
+            background: var(--primary-yellow);
+            color: #222;
+            font-weight: 700;
+            padding: .35rem .7rem;
+            border-radius: 999px;
+            font-size: .85rem;
+            letter-spacing: .5px;
+            margin-bottom: .25rem;
+        }
+        .story h2 { color: var(--primary-blue); }
+        .story p { text-align: left; }
+        .story img { border-radius: 12px; }
+
+        /* DONATION SECTION */
+        .donate {
+            width: 100%;
+            max-width: 1100px;
+            padding: 2rem 1rem 3rem;
+        }
+        .donate-inner {
+            background: #fff;
+            border-left: 6px solid var(--primary-yellow);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+        }
+        .donate h2 { color: var(--secondary-dark-green); }
+        .donate p { margin-bottom: 1rem; }
+        .button {
+            display: inline-block;
+            background-color: var(--primary-yellow);
+            color: #111;
+            padding: .9rem 1.6rem;
+            border-radius: 10px;
+            font-size: clamp(1rem, 1vw + .85rem, 1.1rem);
+            font-weight: 800;
+            text-decoration: none;
+            border: 2px solid #00000010;
+            box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+            transition: transform .08s ease, box-shadow .2s ease, background .2s ease;
+        }
+        .button:hover { transform: translateY(-1px); box-shadow: 0 12px 22px rgba(0,0,0,0.16); }
+        .button:active { transform: translateY(0); }
+
+        /* Responsive enhancements at 600px and wider */
+        @media (min-width: 600px) {
+            header { padding: 1.25rem; }
+            .hero { min-height: 75vh; padding: 3rem 1.5rem; }
+            .story-inner { grid-template-columns: 1.1fr 1fr; align-items: center; padding: 2rem; gap: 2rem; }
+            .donate-inner { padding: 2rem; display: grid; grid-template-columns: 1.5fr auto; align-items: center; gap: 1rem; text-align: left; }
+            .donate-inner .button { justify-self: end; }
+        }
+    </style>
 </head>
 <body>
-    <!-- Hero Section: This is the main banner at the top of the page -->
-    <section class="hero">
-        <!-- Main headline -->
-        <h1>Clean Water for Everyone</h1>
-        <!-- Subheadline -->
-        <p>Join us in bringing safe, clean water to communities in need.</p>
+    <header>
+        <img src="https://hq.globaltech.org/courses/10634/files/306273/preview" alt="charity : water logo">
+    </header>
+
+    <section class="hero" aria-label="Hero">
+        <h1>Help Bring Clean Water to Those in Need</h1>
+        <p>Together we can solve the water crisis. Your support brings safe, clean drinking water to families around the world.</p>
     </section>
 
-    <!-- Story Section: This tells the story of the nonprofit -->
-    <section class="story">
-        <h2>Our Story</h2>
-        <p>
-         
-    </section>
-
-    <!-- Real-World Impact Story Section -->
-    <section class="impact-story">
-        <!-- Section headline -->
-        <h2>Real Impact: Meet Amina</h2>
-        <!-- Container for image and text -->
-        <div class="impact-content">
-            <!-- Impact image -->
-            <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Amina smiling with clean water" class="impact-image">
-            <!-- Impact story text -->
-            <p>
-                Amina used to walk miles every day to collect water for her family. Thanks to your support, her village now has a clean water well. Amina can go to school and her family is healthier and happier.
-            </p>
+    <section class="story" aria-label="Real-world impact story">
+        <div class="story-inner">
+            <div class="story-text">
+                <span class="badge">REAL IMPACT</span>
+                <h2>Amara's Village Now Has Clean Water</h2>
+                <p>
+                    In a rural community, families used to walk hours each day to collect unsafe water. After a
+                    new well was built, girls spend their time in school, families are healthier, and local
+                    businesses are growing. Clean water changed everything.
+                </p>
+            </div>
+            <div class="story-media">
+                <img src="https://images.unsplash.com/photo-1524024973431-2ad916746881?q=80&w=1600&auto=format&fit=crop" alt="Smiling children collecting clean water from a new community tap">
+            </div>
         </div>
     </section>
 
-    <!-- Call-to-Action Section: This encourages visitors to take action -->
-    <section class="call-to-action">
-        <h2>Make a Difference</h2>
-        <p>Your support can help save lives. Every donation brings us closer to a world with clean water for all.</p>
-        <a href="#" class="donate-button">Donate Now</a>
+    <section class="donate" aria-label="Donation call to action">
+        <div class="donate-inner">
+            <div>
+                <h2>Make a Difference Today</h2>
+                <p>Every $40 helps bring clean, safe drinking water to one person. 100% of public donations fund water projects.</p>
+            </div>
+            <a class="button" href="#" aria-label="Donate Now">DONATE NOW</a>
+        </div>
     </section>
 </body>
 </html>
